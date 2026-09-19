@@ -53,6 +53,17 @@ export class Camera {
     this.centerY = worldY - (screenY - this.viewH / 2) / this.zoom
   }
 
+  getProjection(width: number, height: number): Float32Array {
+    this.setViewport(width, height)
+    const sx = (2 * this.zoom) / width
+    const sy = (-2 * this.zoom) / height
+    return new Float32Array([
+      sx, 0, 0,
+      0, sy, 0,
+      -this.centerX * sx, this.centerY * -sy, 1,
+    ])
+  }
+
   reset(): void {
     this.centerX = 0
     this.centerY = 0

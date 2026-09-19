@@ -57,6 +57,7 @@ export const generators: Record<string, ShapeGen> = {
   },
 
   star(buf, count, p, rng) {
+    void rng
     const points = Math.max(3, Math.round(p.points ?? 5))
     const r = R * (p.scale ?? 0.9)
     const inner = r * (p.inner ?? 0.42)
@@ -201,6 +202,7 @@ export const generators: Record<string, ShapeGen> = {
   },
 
   phyllotaxis(buf, count, p, rng) {
+    void rng
     const c = (R / Math.sqrt(count)) * (p.scale ?? 1.1)
     for (let i = 0; i < count; i++) {
       const ang = i * GOLDEN_ANGLE * (p.divergence ?? 1)

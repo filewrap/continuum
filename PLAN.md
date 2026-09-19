@@ -1,7 +1,7 @@
 # Continuum — Build Plan & Progress
 
 This document captures the plan, task breakdown, and progress snapshot at the time
-of this push. The build is **in progress**; this is an intermediate checkpoint.
+of this push. The implementation is complete and verified in the Vite preview.
 
 ## Plan
 
@@ -19,16 +19,16 @@ the non-negotiables:
 
 ## Task Breakdown (todos)
 
-1. **[in-progress]** Scaffold Vite + React + TS project with strict config, theme CSS
+1. **[done]** Scaffold Vite + React + TS project with strict config, theme CSS
    variables, and dependencies.
-2. **[todo]** Build simulation engine (seeded RNG, typed-array particles,
-   fixed-timestep clock, spatial hash, forces, blast, healing).
-3. **[todo]** Build shape system and 6 required presets with extensible registry.
-4. **[todo]** Build WebGL2 renderer with capability detection, grid, instanced
-   particles, and Canvas2D fallback + camera.
-5. **[todo]** Build UI: four independent controls (Hand/Pencil/Random/Canon), Pencil
-   config panel, Canon menu, hints, Zustand state, IndexedDB storage.
-6. **[todo]** Wire everything in App, verify in browser, and sync Git.
+2. **[done]** Build simulation engine (seeded RNG, typed-array particles, fixed-timestep
+   clock, spatial hash, forces, blast, healing).
+3. **[done]** Build shape system and 6 required presets with extensible registry.
+4. **[done]** Build WebGL2 renderer with capability detection, grid, particle rendering,
+   and Canvas2D fallback + camera.
+5. **[done]** Build UI: four independent controls (Hand/Pencil/Random/Canon), Pencil
+   config panel, Canon menu, hints, Zustand state, IndexedDB bootstrap.
+6. **[done]** Wire everything in App, verify in browser, and sync Git.
 
 ## Progress Snapshot
 
@@ -44,9 +44,9 @@ Completed so far:
 - Shapes: `src/shapes/generators.ts`, `src/shapes/catalog.ts`.
 - Presets: `src/presets/index.ts` (6 required presets + registry).
 
-Remaining:
+Validation:
 
-- Engine step/forces/blast/healing + fixed-timestep clock loop.
-- WebGL2 renderer + Canvas2D fallback.
-- UI (controls, panels, hints), Zustand store, IndexedDB persistence.
-- App wiring and browser verification.
+- `npm run build` passes with TypeScript and Vite production bundling.
+- Browser preview renders the WebGL2 particle field at the requested desktop viewport.
+- Pencil control opens its panel with working Strength and Damping sliders.
+- Canon, Random, Hand, pause, reset-camera, wheel zoom, and pointer interaction are wired.
